@@ -9,6 +9,7 @@ image_height = 768
 
 
 def get_image_data():
+
     images = []
     minimized_index = 0
     current_index = 0
