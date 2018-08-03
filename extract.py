@@ -1,6 +1,7 @@
 # IMPORTS
 import os
 import pickle
+import numpy as np
 
 # GLOBALS
 data_directory = "/home/stormrage/Projects/kaggle_cascade/Data/"
@@ -20,10 +21,12 @@ def get_image_data():
             tmp_img=imgText.read()
             b = bytearray(tmp_img,'base64')
         images.append([filename, []])
-        images_data.append([filename,b])
+        images_data.append([filename,str(b)])
         current_index += 1
         if current_index == minimized_index and minimized_index != 0:
             break
+
+    np.save("data_dump",np.array(images_data,dtype=str))
     raw_data = open(data_directory + "train_ship_segmentations.csv", "r").readlines()
     current_index = 0
     for line_number in range(1, len(raw_data)):
@@ -42,8 +45,7 @@ def get_image_data():
             break
     with open(data_directory + 'hitmask', 'wb') as fp:
         pickle.dump(images, fp)
-    with open(data_directory + 'bundled_images', 'wb') as fp:
-        pickle.dump(images_data, fp)
+
     return images
 
 
