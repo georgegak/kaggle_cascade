@@ -5,8 +5,8 @@ import numpy as np
 import math
 
 # GLOBALS
-# data_directory = "/home/stormrage/Projects/kaggle_cascade/Data/"
-data_directory = "D:\\Projects\\kaggle_cascade\\Data\\"
+data_directory = "/home/stormrage/Projects/kaggle_cascade/Data/"
+#data_directory = "D:\\Projects\\kaggle_cascade\\Data\\"
 image_width = 768
 image_height = 768
 
